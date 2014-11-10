@@ -1,0 +1,15 @@
+public class Driver{
+    public static void main(String[]superArraysAreAwesome){
+	SuperArray DeLorean=new SuperArray(1);
+	System.out.println(DeLorean);
+	DeLorean.add("Marty");
+	DeLorean.add("Doc");
+	DeLorean.add("Einstein");
+	System.out.println(DeLorean);
+	DeLorean.resize(10);
+	System.out.println(DeLorean);
+	DeLorean.resize(2);
+	DeLorean.clear();
+	System.out.println(DeLorean);
+    }
+}

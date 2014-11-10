@@ -1,0 +1,38 @@
+public class SuperArray{
+    public Object[] A;
+    public int size;
+    public SuperArray(){
+	this(10);
+	size=0;
+    }
+    public SuperArray(int length){
+	A=new Object[10];
+	size=0;
+    }
+    public String toString(){
+	String ans="[ ";
+	for (int x=0; x<size; x++){
+	    ans+=A[x]+" ";
+	}
+	ans +="]";
+	return ans;
+    }
+    public void add(Object e){
+	if (size<A.length;){
+	    A[size]=e;
+	    size++;
+	} else {
+	    Object B=new Object[size];
+	    for (int y=0; y<B.length; y++){
+		B[y]=A[y];
+	    }
+	    B.add(e);
+	    A=B;
+	}
+    }
+    public int size(){
+	return this.size;
+    }
+}
+
+	    
