@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 public class WordGrid{
     private String[] Words;
     private String[][] Data;
@@ -70,6 +73,22 @@ public class WordGrid{
 	}
 	return true;
     }
+    public boolean addWordHorizontal2(String word,int row, int col){
+	int x=col;
+	for (int y=0; y<word.length(); y++){
+	    if (inBounds(row, x) && fits(word.substring(y,y+1), row, x)){
+	    } else {
+		return false;
+	    }
+	    x--;
+	}
+	x=col;
+	for (int z=0; z<word.length(); z++){
+	    Data[row][x]=word.substring(z,z+1).toUpperCase();
+	    x--;
+	}
+	return true;
+    }
     public boolean addWordVertical(String word,int row, int col){
 	int x=row;
 	for (int y=0; y<word.length(); y++){
@@ -83,6 +102,22 @@ public class WordGrid{
 	for (int z=0; z<word.length(); z++){
 	    Data[x][col]=word.substring(z,z+1).toUpperCase();
 	    x++;
+	}
+	return true;
+    }
+    public boolean addWordVertical2(String word,int row, int col){
+	int x=row;
+	for (int y=0; y<word.length(); y++){
+	    if (inBounds(x, col) && fits(word.substring(y,y+1), x, col)){
+	    } else {
+		return false;
+	    }
+	    x--;
+	}
+	x=row;
+	for (int z=0; z<word.length(); z++){
+	    Data[x][col]=word.substring(z,z+1).toUpperCase();
+	    x--;
 	}
 	return true;
     }
@@ -106,6 +141,69 @@ public class WordGrid{
 	}
 	return true;
     }
+    public boolean addWordDiagonal2(String word,int row, int col){
+	int x=row;
+	int y=col;
+	for (int z=0; z<word.length(); z++){
+	    if (inBounds(x, y) && fits(word.substring(z,z+1), x, y)){
+	    } else {
+		return false;
+	    }
+	    x--;
+	    y++;
+	}
+	x=row;
+	y=col;
+	for (int z=0; z<word.length(); z++){
+	    Data[x][y]=word.substring(z,z+1).toUpperCase();
+	    x--;
+	    y++;
+	}
+	return true;
+    }
+    
+    public boolean addWordDiagonal3(String word,int row, int col){
+	int x=row;
+	int y=col;
+	for (int z=0; z<word.length(); z++){
+	    if (inBounds(x, y) && fits(word.substring(z,z+1), x, y)){
+	    } else {
+		return false;
+	    }
+	    x++;
+	    y--;
+	}
+	x=row;
+	y=col;
+	for (int z=0; z<word.length(); z++){
+	    Data[x][y]=word.substring(z,z+1).toUpperCase();
+	    x++;
+	    y--;
+	}
+	return true;
+    }
+    
+    public boolean addWordDiagonal4(String word,int row, int col){
+	int x=row;
+	int y=col;
+	for (int z=0; z<word.length(); z++){
+	    if (inBounds(x, y) && fits(word.substring(z,z+1), x, y)){
+	    } else {
+		return false;
+	    }
+	    x--;
+	    y--;
+	}
+	x=row;
+	y=col;
+	for (int z=0; z<word.length(); z++){
+	    Data[x][y]=word.substring(z,z+1).toUpperCase();
+	    x--;
+	    y--;
+	}
+	return true;
+    }
+    
     
 
     //vertical + diagonal should be implemented as well.
