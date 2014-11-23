@@ -14,6 +14,10 @@ public class Driver{
 	System.out.println(A.addWordDiagonal("Wayez", 0, 0));
 	System.out.println(A.addWordDiagonal("Wally", 0, 0));
 	System.out.println(A.addWordDiagonal("yes", 0, 2));
+	System.out.println(A.WordBox());
+	System.out.println();
+	System.out.println();
+	System.out.println();
 	A.randomize();
         System.out.println(A.toString());
     }

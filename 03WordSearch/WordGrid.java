@@ -2,8 +2,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.Random;
+import java.util.*;
 public class WordGrid{
-    private String[] Words;
+    private ArrayList Words=new ArrayList();
     private String[][] Data;
      /**Initialize the grid to the size specified and fill all of the positions
      *with spaces.
@@ -72,6 +73,7 @@ public class WordGrid{
 	    Data[row][x]=word.substring(z,z+1).toUpperCase();
 	    x++;
 	}
+	Words.add(word);
 	return true;
     }
     public boolean addWordHorizontal2(String word,int row, int col){
@@ -88,6 +90,7 @@ public class WordGrid{
 	    Data[row][x]=word.substring(z,z+1).toUpperCase();
 	    x--;
 	}
+	Words.add(word);
 	return true;
     }
     public boolean addWordVertical(String word,int row, int col){
@@ -104,6 +107,7 @@ public class WordGrid{
 	    Data[x][col]=word.substring(z,z+1).toUpperCase();
 	    x++;
 	}
+	Words.add(word);
 	return true;
     }
     public boolean addWordVertical2(String word,int row, int col){
@@ -120,6 +124,7 @@ public class WordGrid{
 	    Data[x][col]=word.substring(z,z+1).toUpperCase();
 	    x--;
 	}
+	Words.add(word);
 	return true;
     }
     public boolean addWordDiagonal(String word,int row, int col){
@@ -140,6 +145,7 @@ public class WordGrid{
 	    x++;
 	    y++;
 	}
+	Words.add(word);
 	return true;
     }
     public boolean addWordDiagonal2(String word,int row, int col){
@@ -160,6 +166,7 @@ public class WordGrid{
 	    x--;
 	    y++;
 	}
+	Words.add(word);
 	return true;
     }
     
@@ -181,6 +188,7 @@ public class WordGrid{
 	    x++;
 	    y--;
 	}
+	Words.add(word);
 	return true;
     }
     
@@ -202,6 +210,7 @@ public class WordGrid{
 	    x--;
 	    y--;
 	}
+	Words.add(word);
 	return true;
     }
     
@@ -217,6 +226,17 @@ public class WordGrid{
 	    }
 	}
     }
+
+    public String WordBox(){
+	String Box = "";
+	for (int x=0; x<Words.size(); x++){
+	    float z=10;
+	    Box+=x+1+". "+Words.get(x)+" ";
+	}
+	return Box;
+    }
+
+	
 			
 					 
 
