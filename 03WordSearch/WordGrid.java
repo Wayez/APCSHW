@@ -11,6 +11,9 @@ public class WordGrid{
      *@param row is the starting height of the WordGrid
      *@param col is the starting width of the WordGrid
      */
+    public WordGrid(){
+	this(10,10);
+    }
     public WordGrid(int rows,int cols){
 	Data=new String[rows][cols];
 	clear();
@@ -35,7 +38,7 @@ public class WordGrid{
 	    for (int y=0;y<Data[0].length; y++){
 		ans+=" "+Data[x][y]+" ";
 	    }
-	    ans+="\n";
+	    ans+="\n\n";
 	}
 	return ans;
 	
