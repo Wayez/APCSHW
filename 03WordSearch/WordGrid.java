@@ -7,15 +7,15 @@ public class WordGrid{
      *@param col is the starting width of the WordGrid
      */
     public WordGrid(int rows,int cols){
-	data=new char[rows][cols];
-	clear;
+	Data=new char[rows][cols];
+	clear();
     }
 
     /**Set all values in the WordGrid to spaces ' '*/
     private void clear(){
 	for (int x=0; x<Data.length; x++){
 	    for (int y=0;y<Data[0].length; y++){
-		data[x][y]='_';
+		Data[x][y]='_';
 	    }
 	}
     }
@@ -25,11 +25,12 @@ public class WordGrid{
      *separated by newlines.
      */
     public String toString(){
-	ans="";
+	String ans="";
 	for (int x=0; x<Data.length; x++){
 	    for (int y=0;y<Data[0].length; y++){
-		ans+=" "+data[x][y]+" ";
+		ans+=" "+Data[x][y]+" ";
 	    }
+	    ans+="\n";
 	}
 	return ans;
 	
@@ -46,6 +47,7 @@ public class WordGrid{
      *or there are overlapping letters that do not match, then false is returned.
      */
     public boolean addWordHorizontal(String word,int row, int col){
+	return true;
     }
 
     //vertical + diagonal should be implemented as well.
