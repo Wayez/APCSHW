@@ -1,13 +1,13 @@
 public class WordGrid{
     private String[] Words;
-    private char[][] Data;
+    private String[][] Data;
      /**Initialize the grid to the size specified and fill all of the positions
      *with spaces.
      *@param row is the starting height of the WordGrid
      *@param col is the starting width of the WordGrid
      */
     public WordGrid(int rows,int cols){
-	Data=new char[rows][cols];
+	Data=new String[rows][cols];
 	clear();
     }
 
@@ -15,7 +15,7 @@ public class WordGrid{
     private void clear(){
 	for (int x=0; x<Data.length; x++){
 	    for (int y=0;y<Data[0].length; y++){
-		Data[x][y]='_';
+		Data[x][y]="_";
 	    }
 	}
     }
@@ -46,7 +46,26 @@ public class WordGrid{
      *@return true when the word is added successfully. When the word doesn't fit,
      *or there are overlapping letters that do not match, then false is returned.
      */
+    public boolean inBounds(int row, int col){
+	return (row<Data.length && row>=0 && col<Data[0].length && col>=0); 
+    }
+    public boolean fits(String letter, int row, int col){
+	return Data[row][col].equalsIgnoreCase(letter) || Data[row][col].equals("_");
+    }
     public boolean addWordHorizontal(String word,int row, int col){
+	int x=col;
+	for (int y=0; y<word.length(); y++){
+	    if (inBounds(row, x) && fits(word.substring(y), row, x)){
+	    } else {
+		return false;
+	    }
+	    x++;
+	}
+	x=col;
+	for (int z=0; z<word.length(); z++){
+	    Data[row][x]=word.substring(z,z+1).toUpperCase();
+	    x++;
+	}
 	return true;
     }
 
