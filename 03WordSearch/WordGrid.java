@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.Random;
 public class WordGrid{
     private String[] Words;
     private String[][] Data;
@@ -204,7 +205,20 @@ public class WordGrid{
 	return true;
     }
     
-    
+    public void randomize(){
+	String alpha="qwertyuiopasdfghjklzxcvbnm";
+	for (int x=0; x<Data.length; x++){
+	    for (int y=0; y<Data[0].length; y++){
+		if (Data[x][y].equals("_")){
+		    Random index=new Random();
+		    int letter=index.nextInt(alpha.length());
+		    Data[x][y]=alpha.substring(letter,letter+1).toUpperCase();
+		}
+	    }
+	}
+    }
+			
+					 
 
     //vertical + diagonal should be implemented as well.
 } 
