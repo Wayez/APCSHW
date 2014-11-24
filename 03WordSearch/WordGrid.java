@@ -301,12 +301,12 @@ public class WordGrid{
 	    
 	
     public void setWordSearch(){
-	File text=new Filw();
-	try{
-	text=new File("C:/User/Wayez/Downloads/APCS/APCSHW/03WordSearch/words.txt");
-	} catch (FileNotFoundException){
-	} 
-	Scanner scnr=new Scanner(text);
+	File text=new File("C:/User/Wayez/Downloads/APCS/APCSHW/03WordSearch/words.txt");
+	Scanner scnr=new Scanner(System.in);
+	try {
+	scnr=new Scanner(text);
+	} catch(FileNotFoundException e){
+	}
 	while (scnr.hasNextLine()){
 	    String wrd=scnr.nextLine();
 	    if(wrd.length()>=3){
