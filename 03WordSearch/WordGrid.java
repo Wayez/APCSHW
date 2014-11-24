@@ -4,7 +4,9 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.*;
 public class WordGrid{
+    private int rows, cols;
     private ArrayList Words=new ArrayList();
+    private ArrayList PossibleWords=new ArrayList();
     private String[][] Data;
      /**Initialize the grid to the size specified and fill all of the positions
      *with spaces.
@@ -16,6 +18,8 @@ public class WordGrid{
     }
     public WordGrid(int rows,int cols){
 	Data=new String[rows][cols];
+	this.rows=rows;
+	this.cols=cols;
 	clear();
     }
 
@@ -238,6 +242,87 @@ public class WordGrid{
 	}
 	return Box;
     }
+
+    public void insert(String word){
+	Random Row=new Random();
+	Random Col=new Random();
+	Random Dir=new Random();
+	int y,x;
+	for (int z=0; z<rows*rows*cols; z++){
+	    y=Row.nextInt(rows);
+	    x=Col.nextInt(cols);
+	    int dir=Dir.nextInt(8);
+	    if (Words.indexOf(word)==-1){
+		for (int a=1; a<8; a++){
+		    if (dir==0 && addWordHorizontal(word, y, x)){
+			break;
+		    } else {
+			dir++;
+		    }
+		    if (dir==1 && addWordHorizontal2(word, y, x)){
+			break;
+		    } else {
+			dir++;
+		    }
+		    if (dir==2 && addWordVertical(word, y, x)){
+			break;
+		    } else {
+			dir++;
+		    }
+		    if (dir==3 && addWordVertical2(word, y, x)){
+			break;
+		    } else {
+			dir++;
+		    }
+		    if (dir==4 && addWordDiagonal(word, y, x)){
+			break;
+		    } else {
+			dir++;
+		    }
+		    if (dir==5 && addWordDiagonal2(word, y, x)){
+			break;
+		    } else {
+			dir++;
+		    }
+		    if (dir==6 && addWordDiagonal3(word, y, x)){
+			break;
+		    } else {
+			dir++;
+		    }
+		    if (dir==7 && addWordDiagonal4(word, y, x)){
+			break;
+		    } else {
+			dir=0;
+		    }
+		}
+	    }
+	}
+    }
+	    
+	
+    public void setWordSearch(){
+	File text=new Filw();
+	try{
+	text=new File("C:/User/Wayez/Downloads/APCS/APCSHW/03WordSearch/words.txt");
+	} catch (FileNotFoundException){
+	} 
+	Scanner scnr=new Scanner(text);
+	while (scnr.hasNextLine()){
+	    String wrd=scnr.nextLine();
+	    if(wrd.length()>=3){
+		PossibleWords.add(wrd);
+	    } else {
+		PossibleWords.add("Konstantinovich");
+	    }
+	}
+	for (int x=0; x<PossibleWords.size(); x++){
+	    Random rand=new Random();
+	    int index=rand.nextInt(PossibleWords.size());
+	    insert(PossibleWords.get(index).toString());
+	}
+    }
+       
+	
 
 	
 			
