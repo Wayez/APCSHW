@@ -248,7 +248,7 @@ public class WordGrid{
 	Random Col=new Random();
 	Random Dir=new Random();
 	int y,x;
-	for (int z=0; z<rows*rows*cols; z++){
+	for (int z=0; z<rows*cols; z++){
 	    y=Row.nextInt(rows);
 	    x=Col.nextInt(cols);
 	    int dir=Dir.nextInt(8);
@@ -301,11 +301,12 @@ public class WordGrid{
 	    
 	
     public void setWordSearch(){
-	File text=new File("C:/User/Wayez/Downloads/APCS/APCSHW/03WordSearch/words.txt");
+	File text=new File("C:/Users/Wayez/Downloads/APCS/APCSHW/03WordSearch/words.txt");
 	Scanner scnr=new Scanner(System.in);
 	try {
 	scnr=new Scanner(text);
 	} catch(FileNotFoundException e){
+	    System.out.println("lOL");
 	}
 	while (scnr.hasNextLine()){
 	    String wrd=scnr.nextLine();
@@ -315,7 +316,7 @@ public class WordGrid{
 		PossibleWords.add("Konstantinovich");
 	    }
 	}
-	for (int x=0; x<PossibleWords.size(); x++){
+	for (int x=0; x<rows*cols/5; x++){
 	    Random rand=new Random();
 	    int index=rand.nextInt(PossibleWords.size());
 	    insert(PossibleWords.get(index).toString());
