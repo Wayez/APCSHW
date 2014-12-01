@@ -235,12 +235,12 @@ public class WordGrid{
     }
 
     public String WordBox(){
-	String Box = "";
+	String Box = "---WordBox-------------------------\n";
 	for (int x=0; x<Words.size(); x++){
 	    float z=10;
 	    Box+=x+1+". "+Words.get(x)+" ";
 	}
-	return Box;
+	return Box+="\n------------------------------------";
     }
 
     public void insert(String word){
@@ -248,7 +248,8 @@ public class WordGrid{
 	Random Col=new Random();
 	Random Dir=new Random();
 	int y,x;
-	for (int z=0; z<rows*cols; z++){
+	for (int z=0; z<10
+; z++){
 	    y=Row.nextInt(rows);
 	    x=Col.nextInt(cols);
 	    int dir=Dir.nextInt(8);
@@ -259,7 +260,7 @@ public class WordGrid{
 		    } else {
 			dir++;
 		    }
-		    if (dir==1 && addWordHorizontal2(word, y, x)){
+		    if (dir==1 && addWordDiagonal2(word, y, x)){
 			break;
 		    } else {
 			dir++;
@@ -301,7 +302,7 @@ public class WordGrid{
 	    
 	
     public void setWordSearch(){
-	File text=new File("C:/Users/Wayez/Downloads/APCS/APCSHW/03WordSearch/words.txt");
+	File text=new File("words.txt");
 	Scanner scnr=new Scanner(System.in);
 	try {
 	scnr=new Scanner(text);
