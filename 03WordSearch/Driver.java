@@ -24,7 +24,7 @@ public class Driver{
 		    System.out.println();
 		}
 	    } catch (InputMismatchException e){
-		System.out.println("If you're not smart enough to tell the difference between a letter and number, you probably shouldn't be playing this wordsearch.");
+		System.out.println("If you're not smart enough to tell the difference between a letter and a number, you probably shouldn't be playing this wordsearch.");
 		System.out.println();
 	    
 	    }
@@ -34,7 +34,7 @@ public class Driver{
     }
     public static void set(String[] args){
 	if (args.length==0){
-	    System.out.println("Select Arguments\nFirst Argument:\n0: Regular Wordsearch\n1: Answers Included\nSecond Argument\nRandom Seed Number");
+	    System.out.println("Set Arguments\nFirst Argument:\nRows (5 min, 20 max)\n\nSecond Argument:\nCols (5 min, 50 max)\n\nThird Argument:\nRandom Seed Number\n\nForth Argument:\n0: Regular Wordsearch\n1: Cheatsheet Included");
 	}
 	if (args.length==1){
 	    if (args[0].equals("0")){
