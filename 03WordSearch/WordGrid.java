@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.*;
 public class WordGrid{
-    private int rows, cols;
+    private int rows, cols, seed;
     private ArrayList Words=new ArrayList();
     private ArrayList PossibleWords=new ArrayList();
     private String[][] Data;
@@ -14,12 +14,13 @@ public class WordGrid{
      *@param col is the starting width of the WordGrid
      */
     public WordGrid(){
-	this(10,10);
+	this(10,10,0);
     }
-    public WordGrid(int rows,int cols){
+    public WordGrid(int rows,int cols, int seed){
 	Data=new String[rows][cols];
 	this.rows=rows;
 	this.cols=cols;
+	this.seed=seed;
 	clear();
     }
 
@@ -227,7 +228,7 @@ public class WordGrid{
 	for (int x=0; x<Data.length; x++){
 	    for (int y=0; y<Data[0].length; y++){
 		if (Data[x][y].equals("_")){
-		    Random index=new Random();
+		    Random index=new Random(seed);
 		    int letter=index.nextInt(alpha.length());
 		    Data[x][y]=alpha.substring(letter,letter+1).toUpperCase();
 		}
@@ -245,9 +246,9 @@ public class WordGrid{
     }
 
     public void insert(String word){
-	Random Row=new Random();
-	Random Col=new Random();
-	Random Dir=new Random();
+	Random Row=new Random(seed);
+	Random Col=new Random(seed);
+	Random Dir=new Random(seed);
 	int y,x;
 	for (int z=0; z<10
 ; z++){
