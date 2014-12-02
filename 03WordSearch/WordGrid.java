@@ -223,12 +223,12 @@ public class WordGrid{
 	return true;
     }
     
-    public void randomize(){
+    public void randomize(int sd){
 	String alpha="qwertyuiopasdfghjklzxcvbnm";
 	for (int x=0; x<Data.length; x++){
 	    for (int y=0; y<Data[0].length; y++){
 		if (Data[x][y].equals("_")){
-		    Random index=new Random(seed);
+		    Random index=new Random();
 		    int letter=index.nextInt(alpha.length());
 		    Data[x][y]=alpha.substring(letter,letter+1).toUpperCase();
 		}
@@ -323,6 +323,37 @@ public class WordGrid{
 	    Random rand=new Random();
 	    int index=rand.nextInt(PossibleWords.size());
 	    insert(PossibleWords.get(index).toString());
+	}
+    }
+    public void loadWordsFromFile(String fileName, boolean fillRandomLetters){
+	File text=new File("words.txt");
+	Scanner scnr=new Scanner(System.in);
+	try {
+	scnr=new Scanner(text);
+	} catch(FileNotFoundException e){
+	    System.out.println("lOL");
+	}
+	while (scnr.hasNextLine()){
+	    String wrd=scnr.nextLine();
+	    if(wrd.length()>=3){
+		PossibleWords.add(wrd);
+	    } else {
+		PossibleWords.add("Konstantinovich");
+	    }
+	}
+	if (fillRandomLetters){
+	    for (int x=0; x<rows*cols/2; x++){
+		Random rand=new Random(seed);
+		int index=rand.nextInt(PossibleWords.size());
+		insert(PossibleWords.get(index).toString());
+	    }
+	    randomize(seed);
+	} else {
+	    for (int x=0; x<rows*cols/5; x++){
+		Random rand=new Random();
+		int index=rand.nextInt(PossibleWords.size());
+		insert(PossibleWords.get(index).toString());
+	    }
 	}
     }
        
