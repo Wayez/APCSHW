@@ -4,10 +4,11 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.*;
 public class WordGrid{
-    private int rows, cols, seed;
+    private int rows, cols;
     private ArrayList Words=new ArrayList();
     private ArrayList PossibleWords=new ArrayList();
     private String[][] Data;
+    private Random rand;
      /**Initialize the grid to the size specified and fill all of the positions
      *with spaces.
      *@param row is the starting height of the WordGrid
@@ -16,12 +17,15 @@ public class WordGrid{
     public WordGrid(){
 	this(10,10,0);
     }
-    public WordGrid(int rows,int cols, int seed){
+    public WordGrid(int rows,int cols, long seed){
 	Data=new String[rows][cols];
 	this.rows=rows;
 	this.cols=cols;
-	this.seed=seed;
+	setSeed(seed);
 	clear();
+    }
+    public void setSeed(long seed){
+	rand=new Random(seed);
     }
 
     /**Set all values in the WordGrid to spaces ' '*/
@@ -223,13 +227,12 @@ public class WordGrid{
 	return true;
     }
     
-    public void randomize(int sd){
+    public void randomize(){
 	String alpha="qwertyuiopasdfghjklzxcvbnm";
 	for (int x=0; x<Data.length; x++){
 	    for (int y=0; y<Data[0].length; y++){
 		if (Data[x][y].equals("_")){
-		    Random index=new Random();
-		    int letter=index.nextInt(alpha.length());
+		    int letter=rand.nextInt(alpha.length());
 		    Data[x][y]=alpha.substring(letter,letter+1).toUpperCase();
 		}
 	    }
@@ -246,15 +249,12 @@ public class WordGrid{
     }
 
     public void insert(String word){
-	Random Row=new Random(seed);
-	Random Col=new Random(seed);
-	Random Dir=new Random(seed);
 	int y,x;
 	for (int z=0; z<10
 ; z++){
-	    y=Row.nextInt(rows);
-	    x=Col.nextInt(cols);
-	    int dir=Dir.nextInt(8);
+	    y=rand.nextInt(rows);
+	    x=rand.nextInt(cols);
+	    int dir=rand.nextInt(8);
 	    if (Words.indexOf(word)==-1){
 		for (int a=1; a<8; a++){
 		    if (dir==0 && addWordHorizontal(word, y, x)){
@@ -320,7 +320,6 @@ public class WordGrid{
 	    }
 	}
 	for (int x=0; x<rows*cols/5; x++){
-	    Random rand=new Random();
 	    int index=rand.nextInt(PossibleWords.size());
 	    insert(PossibleWords.get(index).toString());
 	}
@@ -342,15 +341,13 @@ public class WordGrid{
 	    }
 	}
 	if (fillRandomLetters){
-	    for (int x=0; x<rows*cols/2; x++){
-		Random rand=new Random(seed);
+	    for (int x=0; x<rows*cols/5; x++){
 		int index=rand.nextInt(PossibleWords.size());
 		insert(PossibleWords.get(index).toString());
 	    }
-	    randomize(seed);
+	    randomize();
 	} else {
 	    for (int x=0; x<rows*cols/5; x++){
-		Random rand=new Random();
 		int index=rand.nextInt(PossibleWords.size());
 		insert(PossibleWords.get(index).toString());
 	    }

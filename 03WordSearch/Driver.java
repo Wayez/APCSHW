@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 public class Driver{
-    public static WordGrid start(int row, int col,int seed){
+    public static WordGrid start(int row, int col,long seed){
 	WordGrid A=new WordGrid(row, col, seed);
 	return A;	
 	
@@ -15,7 +15,7 @@ public class Driver{
 	if (args.length==4 || args.length==3){
 	    int row=Integer.parseInt(args[0]);
 	    int col=Integer.parseInt(args[1]);
-	    int seed=Integer.parseInt(args[2]);
+	    long seed=Long.parseLong(args[2]);
 	    if (col>=5 && col<=50 && row>=5 && row<=20){
 	    
 		if (args.length==4 && args[3].equals("1")){
