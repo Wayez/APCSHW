@@ -30,17 +30,23 @@ public class Driver{
 	return A;	
 	
     }
+    public static void set(String[] args){
+	if (args.length==0){
+	    System.out.println("Select Arguments\nFirst Argument:\n0: Regular Wordsearch\n1: Answers Included\nSecond Argument\nRandom Seed Number");
+	}
+    }
 	
 	    
     public static void main(String[]args){
-	WordGrid A=start();
-	A.setWordSearch();
+	set(args);
+	//WordGrid A=start();
+	//A.setWordSearch();
 	//A.play();
-	System.out.println(A.WordBox());
-	System.out.println();
-	System.out.println();
-	System.out.println();
-	A.randomize();
-        System.out.println(A.toString());
+	//System.out.println(A.WordBox());
+	//System.out.println();
+	//System.out.println();
+	//System.out.println();
+	//A.randomize();
+        //System.out.println(A.toString());
     }
 }
