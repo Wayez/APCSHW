@@ -21,9 +21,11 @@ public class Driver{
 		    break;
 		} else {
 		    System.out.println("You're Dumb");
+		    System.out.println();
 		}
 	    } catch (InputMismatchException e){
-		System.out.println("You need to go back to Kindergarden and learn what a number is.");
+		System.out.println("If you're not smart enough to tell the difference between a letter and number, you probably shouldn't be playing this wordsearch.");
+		System.out.println();
 	    
 	    }
 	}
@@ -34,6 +36,34 @@ public class Driver{
 	if (args.length==0){
 	    System.out.println("Select Arguments\nFirst Argument:\n0: Regular Wordsearch\n1: Answers Included\nSecond Argument\nRandom Seed Number");
 	}
+	if (args.length==1){
+	    if (args[0].equals("0")){
+		WordGrid A=start();
+		A.setWordSearch();
+		System.out.println(A.WordBox());
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		A.randomize();
+		System.out.println(A.toString());
+	    } else if (args[0].equals("1")){
+		WordGrid A=start();
+		A.setWordSearch();
+		System.out.println(A.toString());
+		System.out.println();
+		System.out.println();
+		System.out.println(A.WordBox());
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		A.randomize();
+		System.out.println(A.toString());
+	    } else {
+		System.out.println("Select Arguments\nFirst Argument:\n0: Regular Wordsearch\n1: Answers Included\nSecond Argument\nRandom Seed Number");
+	    }
+		
+	}
+		   
     }
 	
 	    

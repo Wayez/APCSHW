@@ -36,6 +36,7 @@ public class WordGrid{
      *@return a String with each character separated by spaces, and each row
      *separated by newlines.
      */
+    
     public String toString(){
 	String ans="";
 	for (int x=0; x<Data.length; x++){
@@ -240,7 +241,7 @@ public class WordGrid{
 	    float z=10;
 	    Box+=x+1+". "+Words.get(x)+" ";
 	}
-	return Box+="\n------------------------------------";
+	return Box+="\n-----------------------------------";
     }
 
     public void insert(String word){
