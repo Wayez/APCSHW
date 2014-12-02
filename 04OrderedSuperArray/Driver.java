@@ -1,6 +1,6 @@
 public class Driver{
     public static void main(String[]superArraysAreAwesome){
-	SuperArray Wayez=new SuperArray(1);
+	OrderedSuperArray Wayez=new OrderedSuperArray();
 	System.out.println(Wayez.toString());
 	Wayez.add("Apple");
 	Wayez.add("Banana");

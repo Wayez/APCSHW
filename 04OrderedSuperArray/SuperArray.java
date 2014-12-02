@@ -1,12 +1,12 @@
 public class SuperArray{
-    public Object[] A;
+    public String[] A;
     public int size;
     public SuperArray(){
 	this(10);
 	size=0;
     }
     public SuperArray(int length){
-	A=new Object[10];
+	A=new String[10];
 	size=0;
     }
     public String toString(){
@@ -18,11 +18,11 @@ public class SuperArray{
 	return ans;
     }
     public void add(){
-	this.add(new Object());
+	this.add(new String());
     }
-    public void add(int index, Object e){
+    public void add(int index, String e){
 	if (size<A.length){
-	    Object[] B=new Object[A.length];
+	    String[] B=new String[A.length];
 	    for(int x=0;x<index;x++){
 		B[x]=A[x];
 	    }
@@ -31,7 +31,7 @@ public class SuperArray{
 		B[y]=A[y-1];
 	    }
 	} else {
-	    Object[] B=new Object[size+1];
+	    String[] B=new String[size+1];
 	    for(int x=0;x<index;x++){
 		B[x]=A[x];
 	    }
@@ -44,12 +44,12 @@ public class SuperArray{
 	}
     }
 	    
-    public void add(Object e){
+    public void add(String e){
 	if (size<A.length){
 	    A[size]=e;
 	    size++;
 	} else {
-	    Object[] B=new Object[size+1];
+	    String[] B=new String[size+1];
 	    for (int y=0; y<A.length; y++){
 		B[y]=A[y];
 	    }
@@ -62,7 +62,7 @@ public class SuperArray{
 	return this.size;
     }
     public void resize(int newCapacity){
-	Object[] B=new Object[newCapacity];
+	String[] B=new String[newCapacity];
 	if (B.length>=size){
 	    for (int x=0; x<size; x++){
 		B[x]=A[x];
@@ -77,11 +77,11 @@ public class SuperArray{
     }
     public void clear(){
 	for (int x=0; x<size; x++){
-	    A[x]=new Object();
+	    A[x]=new String();
 	}
 	size=0;
     }
-    public Object get(int index){
+    public String get(int index){
 	if (index<0){
 	    System.out.println("Error: Index cannot be less than 0");
 	    return null;
@@ -93,7 +93,7 @@ public class SuperArray{
 	}
 	
     }
-    public Object set(int index, Object e){
+    public String set(int index, String e){
 	if (index<0){
 	    System.out.println( "Error: Index cannot be less than 0");
 	    return null;
@@ -101,12 +101,12 @@ public class SuperArray{
 	    System.out.println( "Error: Index cannot be greater than or equal to size");
 	    return null;
        } else {
-	    Object x=A[index];
+	    String x=A[index];
 	    A[index]=e;
 	    return x;
 	}
     }
-    public Object remove(int index){
+    public String remove(int index){
 	if (index<0){
 	    System.out.println( "Error: Index cannot be less than 0");
 	    return null;
@@ -114,8 +114,8 @@ public class SuperArray{
 	    System.out.println( "Error: Index cannot be greater than or equal to size");
 	    return null;
        } else {
-	    Object[] B=new Object[A.length];
-	    Object ans=A[index];
+	    String[] B=new String[A.length];
+	    String ans=A[index];
 	    for (int x=0;x<index;x++){
 		B[x]=A[x];
 	    } 
