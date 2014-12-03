@@ -8,19 +8,24 @@ public class WordGrid{
     private ArrayList Words=new ArrayList();
     private ArrayList PossibleWords=new ArrayList();
     private String[][] Data;
+    private Random rand;
      /**Initialize the grid to the size specified and fill all of the positions
      *with spaces.
      *@param row is the starting height of the WordGrid
      *@param col is the starting width of the WordGrid
      */
     public WordGrid(){
-	this(10,10);
+	this(10,10,0);
     }
-    public WordGrid(int rows,int cols){
+    public WordGrid(int rows,int cols, long seed){
 	Data=new String[rows][cols];
 	this.rows=rows;
 	this.cols=cols;
+	setSeed(seed);
 	clear();
+    }
+    public void setSeed(long seed){
+	rand=new Random(seed);
     }
 
     /**Set all values in the WordGrid to spaces ' '*/
@@ -36,6 +41,7 @@ public class WordGrid{
      *@return a String with each character separated by spaces, and each row
      *separated by newlines.
      */
+    
     public String toString(){
 	String ans="";
 	for (int x=0; x<Data.length; x++){
@@ -226,8 +232,7 @@ public class WordGrid{
 	for (int x=0; x<Data.length; x++){
 	    for (int y=0; y<Data[0].length; y++){
 		if (Data[x][y].equals("_")){
-		    Random index=new Random();
-		    int letter=index.nextInt(alpha.length());
+		    int letter=rand.nextInt(alpha.length());
 		    Data[x][y]=alpha.substring(letter,letter+1).toUpperCase();
 		}
 	    }
@@ -240,19 +245,16 @@ public class WordGrid{
 	    float z=10;
 	    Box+=x+1+". "+Words.get(x)+" ";
 	}
-	return Box+="\n------------------------------------";
+	return Box+="\n-----------------------------------";
     }
 
     public void insert(String word){
-	Random Row=new Random();
-	Random Col=new Random();
-	Random Dir=new Random();
 	int y,x;
 	for (int z=0; z<10
 ; z++){
-	    y=Row.nextInt(rows);
-	    x=Col.nextInt(cols);
-	    int dir=Dir.nextInt(8);
+	    y=rand.nextInt(rows);
+	    x=rand.nextInt(cols);
+	    int dir=rand.nextInt(8);
 	    if (Words.indexOf(word)==-1){
 		for (int a=1; a<8; a++){
 		    if (dir==0 && addWordHorizontal(word, y, x)){
@@ -318,9 +320,37 @@ public class WordGrid{
 	    }
 	}
 	for (int x=0; x<rows*cols/5; x++){
-	    Random rand=new Random();
 	    int index=rand.nextInt(PossibleWords.size());
 	    insert(PossibleWords.get(index).toString());
+	}
+    }
+    public void loadWordsFromFile(String fileName, boolean fillRandomLetters){
+	File text=new File("words.txt");
+	Scanner scnr=new Scanner(System.in);
+	try {
+	scnr=new Scanner(text);
+	} catch(FileNotFoundException e){
+	    System.out.println("lOL");
+	}
+	while (scnr.hasNextLine()){
+	    String wrd=scnr.nextLine();
+	    if(wrd.length()>=3){
+		PossibleWords.add(wrd);
+	    } else {
+		PossibleWords.add("Konstantinovich");
+	    }
+	}
+	if (fillRandomLetters){
+	    for (int x=0; x<rows*cols/5; x++){
+		int index=rand.nextInt(PossibleWords.size());
+		insert(PossibleWords.get(index).toString());
+	    }
+	    randomize();
+	} else {
+	    for (int x=0; x<rows*cols/5; x++){
+		int index=rand.nextInt(PossibleWords.size());
+		insert(PossibleWords.get(index).toString());
+	    }
 	}
     }
        
