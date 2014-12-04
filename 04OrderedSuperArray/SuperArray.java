@@ -83,10 +83,10 @@ public class SuperArray{
     }
     public String get(int index){
 	if (index<0){
-	    System.out.println("Error: Index cannot be less than 0");
+	    //System.out.println("Error: Index cannot be less than 0");
 	    return null;
 	} else if(index>=size){
-	    System.out.println("Error: Index cannot be greater than or equal to size");
+	    //System.out.println("Error: Index cannot be greater than or equal to size");
 	    return null;
 	} else {
 	    return A[index];
@@ -95,10 +95,10 @@ public class SuperArray{
     }
     public String set(int index, String e){
 	if (index<0){
-	    System.out.println( "Error: Index cannot be less than 0");
+	    //System.out.println( "Error: Index cannot be less than 0");
 	    return null;
 	} else if(index>=size){
-	    System.out.println( "Error: Index cannot be greater than or equal to size");
+	    //System.out.println( "Error: Index cannot be greater than or equal to size");
 	    return null;
        } else {
 	    String x=A[index];
@@ -108,10 +108,10 @@ public class SuperArray{
     }
     public String remove(int index){
 	if (index<0){
-	    System.out.println( "Error: Index cannot be less than 0");
+	    //System.out.println( "Error: Index cannot be less than 0");
 	    return null;
 	} else if(index>=size){
-	    System.out.println( "Error: Index cannot be greater than or equal to size");
+	    //System.out.println( "Error: Index cannot be greater than or equal to size");
 	    return null;
        } else {
 	    String[] B=new String[A.length];
@@ -123,6 +123,7 @@ public class SuperArray{
 		B[y]=A[y+1];
 	    }
 	    A=B;
+	    size--;
 	    return ans;
 	}
     }

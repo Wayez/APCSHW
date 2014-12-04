@@ -1,9 +1,14 @@
 public class Driver{
     public static void main(String[]superArraysAreAwesome){
-	SuperArray Wayez=new SuperArray(1);
+	OrderedSuperArray Wayez=new OrderedSuperArray();
 	System.out.println(Wayez.toString());
+	System.out.println(Wayez.size());
 	Wayez.add("Apple");
+	System.out.println(Wayez.toString());
+	System.out.println(Wayez.size());
 	Wayez.add("Banana");
+	System.out.println(Wayez.toString());
+	System.out.println(Wayez.size());
 	Wayez.add("Orange");
 	System.out.println(Wayez.toString());
 	System.out.println(Wayez.size());
@@ -13,7 +18,11 @@ public class Driver{
 	Wayez.add("Pineapple");
 	Wayez.add("Watermellon");
 	Wayez.add("Mango");
+	System.out.println(Wayez.toString());
+	System.out.println(Wayez.size());
 	Wayez.add("Raspberry");
+	System.out.println(Wayez.toString());
+	System.out.println(Wayez.size());
 	Wayez.add("Strawberry");
 	System.out.println(Wayez.toString());
 	System.out.println(Wayez.size());
@@ -26,7 +35,7 @@ public class Driver{
         Wayez.clear();
 	System.out.println(Wayez.toString());
 	System.out.println(Wayez.size());
-	Wayez.add("Pear");
+	Wayez.add("Pear"); 
 	Wayez.add("Grape");
 	Wayez.add("Cherry");
 	Wayez.add("Pineapple");
