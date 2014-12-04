@@ -1,25 +1,4 @@
-public class SuperArray extends{
-    public String[] A;
-    public int size;
-    public SuperArray(){
-	this(10);
-	size=0;
-    }
-    public SuperArray(int length){
-	A=new String[10];
-	size=0;
-    }
-    public String toString(){
-	String ans="[ ";
-	for (int x=0; x<size; x++){
-	    ans+=A[x]+" ";
-	}
-	ans +="]";
-	return ans;
-    }
-    public void add(){
-	this.add(new String());
-    }
+public class OrderedSuperArray extends SuperArray{
     public void add(int index, String e){
 	if (size<A.length){
 	    String[] B=new String[A.length];
