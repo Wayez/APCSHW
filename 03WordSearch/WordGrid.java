@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.*;
 public class WordGrid{
-    private int rows, cols;
+    private int rows, cols, hor, ver, diag;
     private ArrayList Words=new ArrayList();
     private ArrayList PossibleWords=new ArrayList();
     private String[][] Data;
@@ -50,6 +50,7 @@ public class WordGrid{
 	    }
 	    ans+="\n\n";
 	}
+	ans+="\n"+ver+"\n"+hor+"\n"+diag;
 	return ans;
 	
     }
@@ -87,6 +88,7 @@ public class WordGrid{
 	    x++;
 	}
 	Words.add(word);
+	hor++;
 	return true;
     }
     public boolean addWordHorizontal2(String word,int row, int col){
@@ -104,6 +106,7 @@ public class WordGrid{
 	    x--;
 	}
 	Words.add(word);
+	hor++;
 	return true;
     }
     public boolean addWordVertical(String word,int row, int col){
@@ -121,6 +124,7 @@ public class WordGrid{
 	    x++;
 	}
 	Words.add(word);
+	ver++;
 	return true;
     }
     public boolean addWordVertical2(String word,int row, int col){
@@ -138,6 +142,7 @@ public class WordGrid{
 	    x--;
 	}
 	Words.add(word);
+	ver++;
 	return true;
     }
     public boolean addWordDiagonal(String word,int row, int col){
@@ -159,6 +164,7 @@ public class WordGrid{
 	    y++;
 	}
 	Words.add(word);
+	diag++;
 	return true;
     }
     public boolean addWordDiagonal2(String word,int row, int col){
@@ -180,6 +186,7 @@ public class WordGrid{
 	    y++;
 	}
 	Words.add(word);
+	diag++;
 	return true;
     }
     
@@ -202,6 +209,7 @@ public class WordGrid{
 	    y--;
 	}
 	Words.add(word);
+	diag++;
 	return true;
     }
     
@@ -224,6 +232,7 @@ public class WordGrid{
 	    y--;
 	}
 	Words.add(word);
+	diag++;
 	return true;
     }
     
@@ -254,7 +263,7 @@ public class WordGrid{
 ; z++){
 	    y=rand.nextInt(rows);
 	    x=rand.nextInt(cols);
-	    int dir=rand.nextInt(8);
+	    int dir=rand.nextInt(12);
 	    if (Words.indexOf(word)==-1){
 		for (int a=1; a<8; a++){
 		    if (dir==0 && addWordHorizontal(word, y, x)){
@@ -277,22 +286,22 @@ public class WordGrid{
 		    } else {
 			dir++;
 		    }
-		    if (dir==4 && addWordDiagonal(word, y, x)){
+		    if ((dir==4 || dir==9) && addWordDiagonal(word, y, x)){
 			break;
 		    } else {
 			dir++;
 		    }
-		    if (dir==5 && addWordDiagonal2(word, y, x)){
+		    if ((dir==5 || dir==10) && addWordDiagonal2(word, y, x)){
 			break;
 		    } else {
 			dir++;
 		    }
-		    if (dir==6 && addWordDiagonal3(word, y, x)){
+		    if ((dir==6 || dir==11) && addWordDiagonal3(word, y, x)){
 			break;
 		    } else {
 			dir++;
 		    }
-		    if (dir==7 && addWordDiagonal4(word, y, x)){
+		    if ((dir==7 || dir==12) && addWordDiagonal4(word, y, x)){
 			break;
 		    } else {
 			dir=0;
