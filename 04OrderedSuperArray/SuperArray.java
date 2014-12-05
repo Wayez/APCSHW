@@ -126,15 +126,16 @@ public class SuperArray{
 	    return ans;
 	}
     }
-    public String selectionSort(){
+    public void selectionSort(){
 	for (int x=0; x<A.length; x++){
 	    for (int y=0; x<A.length; x++){
 		if (A[y].compareTo(A[x])<=0){
-		    insert(x,remove(y));
+		    add(x,remove(y));
 		}
 	    }
 	}
     }
+
 	
 }
 

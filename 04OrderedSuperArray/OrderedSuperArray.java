@@ -1,3 +1,4 @@
+import java.util.*;
 public class OrderedSuperArray extends SuperArray{
     public OrderedSuperArray(){
 	super(10);
@@ -9,8 +10,6 @@ public class OrderedSuperArray extends SuperArray{
     }
     public void order(){
 	Arrays.sort(A);
-    }
-    public void InsertionSort(){
     }
 		
 	    
