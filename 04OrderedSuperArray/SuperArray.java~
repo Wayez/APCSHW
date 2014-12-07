@@ -1,6 +1,3 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 public class SuperArray{
     public String[] A;
     public int size;
@@ -8,12 +5,8 @@ public class SuperArray{
 	this(10);
 	size=0;
     }
-    public SuperArray(String file){
-	File word=new File(file);
-    }
-
     public SuperArray(int length){
-	A=new String[length];
+	A=new String[10];
 	size=0;
     }
     public String toString(){
@@ -28,11 +21,7 @@ public class SuperArray{
 	this.add(new String());
     }
     public void add(int index, String e){
-	if (size==0){
-	    A[0]=e;
-	    size++;
-	}
-	else if (size<A.length){
+	if (size<A.length){
 	    String[] B=new String[A.length];
 	    for(int x=0;x<=index;x++){
 		B[x]=get(x);
@@ -41,8 +30,6 @@ public class SuperArray{
 	    for(int y=index+1;y<B.length;y++){
 		B[y]=get(y-1);
 	    }
-	    size++;
-	    A=B;
 	} else {
 	    String[] B=new String[size+1];
 	    for(int x=0;x<=index;x++){
@@ -140,30 +127,6 @@ public class SuperArray{
 	    return ans;
 	}
     }
-        public void InsertionSort(){
-	for (int x=1; x<size(); x++){
-	    //System.out.println(A[x].compareTo(A[x-1]));
-	    if (A[x].compareTo(A[x-1])<0){
-		for (int y=1; y<=x; y++){
-		    //System.out.println(A[x].compareTo(A[x-1]));
-		    if (A[x].compareTo(A[x-y])>0){
-			String temp=get(x);
-			remove(x);
-			//System.out.println(x);
-			//System.out.println(y);
-			//System.out.println(x-y);
-			add(x-y+1, temp);
-			break;
-		    } else if (x-y==0){
-			add(0, remove(x));
-			break;
-		    }
-		}
-	    }
-	}
-	//System.out.println(size());
-    }
-
 	
 }
 

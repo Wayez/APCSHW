@@ -28,8 +28,8 @@ public class Driver{
 	}
 	numbers.InsertionSort();
 	System.out.println(numbers.toString());
-	System.out.println("2".compareTo("10"));
-	System.out.println("2".compareTo("20"));
-	System.out.println("2".compareTo("29"));
+	//System.out.println("2".compareTo("10"));
+	//System.out.println("2".compareTo("20"));
+	//System.out.println("2".compareTo("29"));
     }
 }
