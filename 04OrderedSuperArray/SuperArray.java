@@ -10,8 +10,8 @@ public class SuperArray{
 	size=0;
     }
     public SuperArray(String file){
+	this();
 	loadWordsToSuperArray(file);
-	size=0;
     }
 
     public SuperArray(int length){
@@ -187,7 +187,7 @@ public class SuperArray{
 	File word=new File(file);
 	Scanner scnr=new Scanner(System.in);
 	try {
-	scnr=new Scanner(text);
+	scnr=new Scanner(word);
 	} catch(FileNotFoundException e){
 	    System.out.println("lOL");
 	}
