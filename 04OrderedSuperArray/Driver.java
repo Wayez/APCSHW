@@ -39,9 +39,12 @@ public class Driver{
 	}
     }
     public static void main(String[]args){
+	long start = System.currentTimeMillis();
 	SuperArray Wayez =start(args);
 	if (args.length==1 && (args[0].equals("1") || args[0].equals("2") || args[0].equals("3") || args[0].equals("4") || args[0].equals("5"))){
 	    System.out.println(Wayez.toString());
+	    long elapsed = System.currentTimeMillis() - start;
+	    System.out.println("Time Elapsed = " + elapsed);
 	}	
     }
 }
