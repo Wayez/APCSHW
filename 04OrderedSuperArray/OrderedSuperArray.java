@@ -13,7 +13,7 @@ public class OrderedSuperArray extends SuperArray{
 					
 	    
     public void add(String e){
-	System.out.println("Adding and sorting " + e + " into ordered superarray");
+	//System.out.println("Adding and sorting " + e + " into ordered superarray");
 	int a=0;
 	for (int x=0; x<size(); x++){
 	    if (e.compareTo(get(x))>0){
