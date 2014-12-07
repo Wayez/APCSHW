@@ -163,6 +163,22 @@ public class SuperArray{
 	}
 	//System.out.println(size());
     }
+    public void SelectionSort(){
+	//System.out.println(toString());
+	for (int x=0; x<size(); x++){
+	    String temp=get(x);
+	    int index=x;
+	    for (int y=1; x+y<size(); y++){
+		if (get(x+y).compareTo(temp)<0){
+		    temp=get(x+y);
+		    index=x+y;
+		}
+	    }
+	    set(index, get(x));
+	    set(x, temp);
+	}
+    }
+    
 
 	
 }

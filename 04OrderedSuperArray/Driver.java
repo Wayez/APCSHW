@@ -26,10 +26,11 @@ public class Driver{
 	for (int x=0; x<100; x++){
 	    numbers.add(Integer.toString(x));
 	}
-	numbers.InsertionSort();
+	//numbers.InsertionSort();
+	numbers.SelectionSort();
 	System.out.println(numbers.toString());
-	System.out.println("2".compareTo("10"));
-	System.out.println("2".compareTo("20"));
-	System.out.println("2".compareTo("29"));
+	//System.out.println("2".compareTo("10"));
+	//System.out.println("2".compareTo("20"));
+	//System.out.println("2".compareTo("29"));
     }
 }
