@@ -10,7 +10,8 @@ public class SuperArray{
 	size=0;
     }
     public SuperArray(String file){
-	File word=new File(file);
+	loadWordsToSuperArray(file);
+	size=0;
     }
 
     public SuperArray(int length){
@@ -182,7 +183,20 @@ public class SuperArray{
     public void builtInSort(){
 	Arrays.sort(A);
     }
-    
+    public void loadWordsToSuperArray(String file){
+	File word=new File(file);
+	Scanner scnr=new Scanner(System.in);
+	try {
+	scnr=new Scanner(text);
+	} catch(FileNotFoundException e){
+	    System.out.println("lOL");
+	}
+	while (scnr.hasNextLine()){
+	    String wrd=scnr.nextLine();
+	    add(wrd);
+	}
+    }
+	
 
 	
 }
