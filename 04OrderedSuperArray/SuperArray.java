@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.Arrays;
 public class SuperArray{
     public String[] A;
     public int size;
@@ -177,6 +178,9 @@ public class SuperArray{
 	    set(index, get(x));
 	    set(x, temp);
 	}
+    }
+    public void builtInSort(){
+	Arrays.sort(A);
     }
     
 
