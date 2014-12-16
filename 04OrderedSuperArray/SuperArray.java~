@@ -1,7 +1,3 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-import java.util.Arrays;
 public class SuperArray{
     public String[] A;
     public int size;
@@ -9,17 +5,8 @@ public class SuperArray{
 	this(10);
 	size=0;
     }
-    public SuperArray(String file){
-	this();
-	loadWordsToSuperArray(file);
-    }
-
     public SuperArray(int length){
-<<<<<<< HEAD
 	A=new String[10];
-=======
-	A=new String[length];
->>>>>>> 9bfd8f624e45b887093e9bcb7de0476d270fbdf2
 	size=0;
     }
     public String toString(){
@@ -34,37 +21,19 @@ public class SuperArray{
 	this.add(new String());
     }
     public void add(int index, String e){
-<<<<<<< HEAD
 	if (size<A.length){
-	    String[] B=new String[A.length];
-	    for(int x=0;x<index;x++){
-		B[x]=A[x];
-=======
-	if (size==0){
-	    A[0]=e;
-	    size++;
-	}
-	else if (size<A.length){
 	    String[] B=new String[A.length];
 	    for(int x=0;x<=index;x++){
 		B[x]=get(x);
->>>>>>> 9bfd8f624e45b887093e9bcb7de0476d270fbdf2
 	    }
 	    B[index]=e;
 	    for(int y=index+1;y<B.length;y++){
 		B[y]=get(y-1);
 	    }
-	    size++;
-	    A=B;
 	} else {
 	    String[] B=new String[size+1];
-<<<<<<< HEAD
-	    for(int x=0;x<index;x++){
-		B[x]=A[x];
-=======
 	    for(int x=0;x<=index;x++){
 		B[x]=get(x);
->>>>>>> 9bfd8f624e45b887093e9bcb7de0476d270fbdf2
 	    }
 	    B[index]=e;
 	    for(int y=index+1;y<B.length;y++){
@@ -158,82 +127,6 @@ public class SuperArray{
 	    return ans;
 	}
     }
-<<<<<<< HEAD
-    public void selectionSort(){
-	for (int x=0; x<A.length; x++){
-	    for (int y=0; x<A.length; x++){
-		if (A[y].compareTo(A[x])<=0){
-		    add(x,remove(y));
-		}
-	    }
-	}
-    }
-=======
-        public void InsertionSort(){
-	for (int x=1; x<size(); x++){
-	    //System.out.println(A[x].compareTo(A[x-1]));
-	    if (A[x].compareTo(A[x-1])<0){
-		for (int y=1; y<=x; y++){
-		    //System.out.println(A[x].compareTo(A[x-1]));
-		    if (A[x].compareTo(A[x-y])>0){
-			String temp=get(x);
-			remove(x);
-			//System.out.println(x);
-			//System.out.println(y);
-			//System.out.println(x-y);
-			add(x-y+1, temp);
-			break;
-		    } else if (x-y==0){
-			add(0, remove(x));
-			break;
-		    }
-		}
-	    }
-	}
-	//System.out.println(size());
-    }
-    public void SelectionSort(){
-	//System.out.println(toString());
-	for (int x=0; x<size(); x++){
-	    String temp=get(x);
-	    int index=x;
-	    for (int y=1; x+y<size(); y++){
-		if (get(x+y).compareTo(temp)<0){
-		    temp=get(x+y);
-		    index=x+y;
-		}
-	    }
-	    set(index, get(x));
-	    set(x, temp);
-	}
-    }
-    public void builtInSort(){
-	Arrays.sort(A);
-    }
-    public void loadWordsToSuperArray(String file){
-	File word=new File(file);
-	Scanner scnr=new Scanner(System.in);
-	try {
-	scnr=new Scanner(word);
-	} catch(FileNotFoundException e){
-	    System.out.println("lOL");
-	}
-	while (scnr.hasNextLine()){
-	    String wrd=scnr.nextLine();
-	    add(wrd);
-	}
-    }
-    public void badInsertionSort(){
-        OrderedSuperArray c = new OrderedSuperArray();
-        while( this.size() > 0){ 
-            c.add(this.remove(0));
-        }
-        while(c.size() > 0){
-            this.add(c.remove(0));
-        }
-}
->>>>>>> 9bfd8f624e45b887093e9bcb7de0476d270fbdf2
-
 	
 }
 
