@@ -1,44 +1,43 @@
 import java.util.Arrays;
 public class Driver{
-<<<<<<< HEAD
-    public static void main(String[]superArraysAreAwesome){
-	SuperArray Wayez=new OrderedSuperArray();
-	System.out.println(Wayez.toString(10));
-	Wayez.add("Apple");
-	Wayez.add("Banana");
-	Wayez.add("Orange");
-	System.out.println(Wayez.toString());
-	//System.out.println(Wayez.size());
-	Wayez.add("Pear");
-	Wayez.add("Grape");
-	Wayez.add("Cherry");
-	Wayez.add("Pineapple");
-	Wayez.add("Watermellon");
-	Wayez.add("Mango");
-	Wayez.add("Raspberry");
-	Wayez.add("Strawberry");
-	System.out.println(Wayez.toString());
-	//System.out.println(Wayez.size());
+    //public static void main(String[]superArraysAreAwesome){
+    //	SuperArray Wayez=new OrderedSuperArray();
+    //	System.out.println(Wayez.toString(10));
+    //	Wayez.add("Apple");
+    //	Wayez.add("Banana");
+    //	Wayez.add("Orange");
+    //	System.out.println(Wayez.toString());
+    //	//System.out.println(Wayez.size());
+    //	Wayez.add("Pear");
+    //	Wayez.add("Grape");
+    ///	Wayez.add("Cherry");
+    //	Wayez.add("Pineapple");
+    //	Wayez.add("Watermellon");
+    //	Wayez.add("Mango");
+    //	Wayez.add("Raspberry");
+    //	Wayez.add("Strawberry");
+    //	System.out.println(Wayez.toString());
+    //	//System.out.println(Wayez.size());
 	//Wayez.resize(20);
 	//System.out.println(Wayez.toString());
 	//System.out.println(Wayez.size());
 	//Wayez.resize(3);
 	//System.out.println(Wayez.toString());
 	//System.out.println(Wayez.size());
-        Wayez.clear();
-	System.out.println(Wayez.toString());
-	//System.out.println(Wayez.size());
-	Wayez.add("Pear");
-	Wayez.add("Grape");
-	Wayez.add("Cherry");
-	Wayez.add("Pineapple");
-	Wayez.add("Watermellon");
-	Wayez.add("Mango");
-	Wayez.add("Raspberry");
-	Wayez.add("Strawberry");
+    //  Wayez.clear();
+    ///	System.out.println(Wayez.toString());
+    //	//System.out.println(Wayez.size());
+    ///	Wayez.add("Pear");
+    //	Wayez.add("Grape");
+    //	Wayez.add("Cherry");
+    //	Wayez.add("Pineapple");
+    //	Wayez.add("Watermellon");
+    //	Wayez.add("Mango");
+    //	Wayez.add("Raspberry");
+    //	Wayez.add("Strawberry");
 	//System.out.println(Wayez.get(3));
 	//System.out.println(Wayez.set(3, "Apple"));
-	System.out.println(Wayez.toString());
+    //	System.out.println(Wayez.toString());
 	//System.out.println(Wayez.get(-5));
 	//System.out.println(Wayez.get(100));
 	//Wayez.add(3, "Pineapple");
@@ -47,8 +46,8 @@ public class Driver{
        	//System.out.println(Wayez.set(100, "Grape"));
 	//System.out.println(Wayez.remove(5));
 	//System.out.println(Wayez.toString());
+    //}
 			   
-=======
     public static SuperArray start(String[] args){
 	SuperArray ans=new SuperArray();
 	if (args.length==1){
@@ -74,7 +73,7 @@ public class Driver{
 		ans.add("Orange");
 		ans.add("Grape");
 		ans.add("Banana");
-		ans.add("Cherry");
+	ans.add("Cherry");
 		ans.add("Watermellon");
 		ans.add("Mango");
 		return ans;
@@ -95,6 +94,5 @@ public class Driver{
 	    long elapsed = System.currentTimeMillis() - start;
 	    System.out.println("Time Elapsed = " + elapsed);
 	}	
->>>>>>> 9bfd8f624e45b887093e9bcb7de0476d270fbdf2
     }
 }
