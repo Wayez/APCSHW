@@ -53,7 +53,6 @@ public class Driver{
 	if (args.length==1){
 	    if (args[0].equals("1")){
 		ans=new SuperArray("numbers.txt");
-		ans.InsertionSort();
 		return ans;
 	    } else if (args[0].equals("2")){
 		ans=new SuperArray("numbers.txt");
@@ -73,7 +72,7 @@ public class Driver{
 		ans.add("Orange");
 		ans.add("Grape");
 		ans.add("Banana");
-	ans.add("Cherry");
+		ans.add("Cherry");
 		ans.add("Watermellon");
 		ans.add("Mango");
 		return ans;

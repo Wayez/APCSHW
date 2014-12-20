@@ -1,33 +1,29 @@
+<<<<<<< HEAD
+import java.util.*;
 public class OrderedSuperArray extends SuperArray{
     public OrderedSuperArray(){
 	super(10);
-<<<<<<< HEAD
 	size=0;
     }
     public void add(int index, String e){
 	System.out.println("No need to specify index, this is an ordered array list");
 	this.add(e);
     }
-    public void order(String e){
-	boolean flled=false;
-	for (int x=0; x<super.size()-1; x++){
-	    if (e.compareTo(super.get(x))<=0){
-		super.add(x, e);
-		super.remove(size);
-		resize(super.size()-1);
-		break;
-	    }
-	}
+    public void order(){
+	Arrays.sort(A);
     }
 		
 	    
     public void add(String e){
 	super.add(e);
-	order(e);
+	order();
     }
     public String set(int index, String e){
 	System.out.println("This method is useless for ordered superarray. Instead we will remove the String in the specified index and add new String to file");
 =======
+public class OrderedSuperArray extends SuperArray{
+    public OrderedSuperArray(){
+	super(10);
     }
     public OrderedSuperArray(int length){
 	super(length);
@@ -36,45 +32,19 @@ public class OrderedSuperArray extends SuperArray{
 	System.out.println("No need to specify index for ordered superarray. Adding and sorting "+ e);
 	add(e);
     }
-    public void InsertionSort(){
-	for (int x=1; x<size(); x++){
-	    //System.out.println(A[x].compareTo(A[x-1]));
-	    if (A[x].compareTo(A[x-1])<0){
-		for (int y=1; y<=x; y++){
-		    //System.out.println(A[x].compareTo(A[x-1]));
-		    if (A[x].compareTo(A[x-y])>=0){
-			String temp=A[x];
-			remove(x);
-			System.out.println(x);
-			System.out.println(y);
-			System.out.println(x-y);
-			super.add(x-y, temp);
-			break;
-		    } else if (x-y==1){
-			super.add(0, remove(x));
-			break;
-		    }
-		}
-	    }
-	}
-	//System.out.println(size());
-    }
 	    
 					
 	    
     public void add(String e){
-	System.out.println("Adding and sorting " + e + " into ordered superarray");
-	int index = size();
-        while( index >0 && get(index-1).compareTo(e) > 0 ){
-            index--;
-        }
-	System.out.println(index);
-	super.add(0, e);
-        super.add(index, e);
+	//System.out.println("Adding and sorting " + e + " into ordered superarray");
+	int a=0;
+	for (int x=0; x<size(); x++){
+	    if (e.compareTo(get(x))>0){
+		a++;
+	    }
+	}
+	super.add(a, e);
     }
-	    
-	//System.out.println(size());
-	//order(e);
     public void order(String e){
 	System.out.println(size());
 	for (int i=0; i<size(); i++){
