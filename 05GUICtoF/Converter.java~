@@ -1,13 +1,12 @@
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*; //needed for pane
-public class CtoF extends JFrame implements ActionListener{
+public class Converter extends JFrame implements ActionListener{
     private Container pane;
-    private JButton b,clear;
-    private JLabel l;
+    private JButton convert;
+    private JLabel degrees;
     private JTextField text;
-    private Container buttons;
-    private Container textyStuff;
+    private Container c;
     private JRadioButton box, box2;
 
     public CtoF() {
@@ -19,18 +18,18 @@ public class CtoF extends JFrame implements ActionListener{
 	pane = this.getContentPane();
 	pane.setLayout(new GridLayout(2,1));
 	
-	l = new JLabel("Degrees:",null,JLabel.CENTER);
-	b = new JButton("Convert");
-	text = new JTextField(40);
+	degrees = new JLabel("Degrees:",null,JLabel.CENTER);
+	convert = new JButton("Convert");
+	text = new JTextField(4);
 	box = new JRadioButton("Celcius to Ferenheit");
 	box2 = new JRadioButton("Ferenheit to Celcius"); 
 	JRadioButton CtoF = new JRadioButton("Celcius to Ferenheit");
-	//CtoF.setMnemonic(KeyEvent.VK_A);
+	CtoF.setMnemonic(KeyEvent.VK_A);
 	CtoF.setActionCommand("Celcius to Ferenheit");
 	CtoF.setSelected(true);
 
 	JRadioButton FtoC = new JRadioButton("Ferenheit to Celcius");
-	//FtoC.setMnemonic(KeyEvent.VK_B);
+	FtoC.setMnemonic(KeyEvent.VK_B);
 	FtoC.setActionCommand("Ferenheit to Celcius");
 
 	ButtonGroup group = new ButtonGroup();
@@ -40,48 +39,47 @@ public class CtoF extends JFrame implements ActionListener{
 	FtoC.addActionListener(this);
 	
 	// make the buttons call the actionListener
-	b.setActionCommand("addPeriod");
-	b.addActionListener(this);
+	//convert.setActionCommand("addPeriod");
+	//convert.addActionListener(this);
 	//clear.setActionCommand("delete");
 	//clear.addActionListener(this);
 	
-	buttons = new Container();
-	buttons.setLayout(new FlowLayout());
+	c = new Container();
+	c.setLayout(new FlowLayout());
 	//buttons.add(clear);
-	buttons.add(b);
-	buttons.add(CtoF);
-	buttons.add(FtoC);
+	c.add(degrees);
+	c.add(text);
+	c.add(convert);
+	c.add(CtoF);
+	c.add(FtoC);
  	
-	textyStuff = new Container();
-	textyStuff.setLayout(new FlowLayout());
-	textyStuff.add(l);
-	textyStuff.add(text);
-	
+
+
 	//add the 2 containers
-	pane.add(textyStuff);
-	pane.add(buttons);
+	pane.add(c);
 	
     }
     //look at which command is being executed, and choose an action
     public void actionPerformed(ActionEvent e){
 	String action = e.getActionCommand();
 	//System.out.println(action);
-	if(action.equals("addPeriod")){
+	if(action.equals("Celcius to Ferenheit")){
 	    String s = text.getText();
-	    if(box.isSelected()){
-		s+="!";
-	    }else{
-		s+=".";
-	    }
-	    text.setText(s);
+	    int c = Integer.parseInt(s);
+	    int f = c * 5 / 9 + 32;
+	    text.setText(String.valueOf(f));
 	}
-	if(action.equals("delete")){
-	    text.setText("");
+	if(action.equals("Ferenheit to Celcius")){
+	    String s = text.getText();
+	    int f = Integer.parseInt(s);
+	    int c =(f - 32) / 9 * 5;
+	    text.setText(String.valueOf(c));
 	}
     }
     
+    
     public static void main(String[] args) {
-	CtoF g = new CtoF();
+	Converter g = new Converter();
 	g.setVisible(true);
     }
     

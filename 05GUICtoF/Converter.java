@@ -1,16 +1,15 @@
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*; //needed for pane
-public class CtoF extends JFrame implements ActionListener{
+public class Converter extends JFrame implements ActionListener{
     private Container pane;
-    private JButton convert;
+    private JButton CtoF, FtoC;
     private JLabel degrees;
     private JTextField text;
     private Container c;
-    private JRadioButton box, box2;
 
-    public CtoF() {
-	this.setTitle("Celcius to Ferenheit");
+    public Converter() {
+	this.setTitle("Temperature Converter");
 	this.setSize(600,100);
 	this.setLocation(100,100);
 	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -19,16 +18,12 @@ public class CtoF extends JFrame implements ActionListener{
 	pane.setLayout(new GridLayout(2,1));
 	
 	degrees = new JLabel("Degrees:",null,JLabel.CENTER);
-	convert = new JButton("Convert");
 	text = new JTextField(4);
-	box = new JRadioButton("Celcius to Ferenheit");
-	box2 = new JRadioButton("Ferenheit to Celcius"); 
-	JRadioButton CtoF = new JRadioButton("Celcius to Ferenheit");
-	CtoF.setMnemonic(KeyEvent.VK_A);
+	CtoF = new JButton("Celsius to Ferenheit");
 	CtoF.setActionCommand("Celcius to Ferenheit");
 	CtoF.setSelected(true);
 
-	JRadioButton FtoC = new JRadioButton("Ferenheit to Celcius");
+	JButton FtoC = new JButton("Ferenheit to Celcius");
 	FtoC.setMnemonic(KeyEvent.VK_B);
 	FtoC.setActionCommand("Ferenheit to Celcius");
 
@@ -49,7 +44,6 @@ public class CtoF extends JFrame implements ActionListener{
 	//buttons.add(clear);
 	c.add(degrees);
 	c.add(text);
-	c.add(convert);
 	c.add(CtoF);
 	c.add(FtoC);
  	
@@ -65,21 +59,21 @@ public class CtoF extends JFrame implements ActionListener{
 	//System.out.println(action);
 	if(action.equals("Celcius to Ferenheit")){
 	    String s = text.getText();
-	    int c = Integer.parseInt(s);
-	    int f = c * 5 / 9 + 32;
-	    text.setText(String.valueOf(f));
+	    double c = Double.parseDouble(s);
+	    double f = c * 9.0 / 5.0 + 32.0;
+	    text.setText(Double.toString(f));
 	}
 	if(action.equals("Ferenheit to Celcius")){
 	    String s = text.getText();
-	    int f = Integer.parseInt(s);
-	    int c =(f - 32) / 9 * 5;
-	    text.setText(String.valueOf(c));
+	    double f = Double.parseDouble(s);
+	    double c =(f - 32.0) / 5.0 * 9.0;
+	    text.setText(Double.toString(c));
 	}
     }
     
     
     public static void main(String[] args) {
-	CtoF g = new CtoF();
+	Converter g = new Converter();
 	g.setVisible(true);
     }
     
