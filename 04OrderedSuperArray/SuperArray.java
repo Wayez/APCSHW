@@ -11,12 +11,12 @@ public class SuperArray{
     }
     public SuperArray(String file){
 	this();
-	System.out.println();
+	//System.out.println();
 	loadWordsToSuperArray(file);
     }
 
     public SuperArray(int length){
-	A=new String[10];
+	//A=new String[10];
 	A=new String[length];
 	size=0;
     }
@@ -31,6 +31,35 @@ public class SuperArray{
     public void add(){
 	this.add(new String());
     }
+    public void orderedAdd(int index, String e){
+	if (size==0){
+	    A[0]=e;
+	    size++;
+	}
+	else if (size<A.length){
+	    String[] B=new String[A.length];
+	    for(int x=0;x<=index;x++){
+		B[x]=get(x);
+	    }
+	    B[index]=e;
+	    for(int y=index+1;y<B.length;y++){
+		B[y]=get(y-1);
+	    }
+	    size++;
+	    A=B;
+	} else {
+	    String[] B=new String[size+1];
+	    for(int x=0;x<=index;x++){
+		B[x]=get(x);
+	    }
+	    B[index]=e;
+	    for(int y=index+1;y<B.length;y++){
+		B[y]=get(y-1);
+	    }
+	    size++;
+	    A=B;
+	}
+    }
     public void add(int index, String e){
 	if (size<A.length){
 	    String[] B=new String[A.length];
@@ -44,6 +73,8 @@ public class SuperArray{
 	    }
 	}
     }
+    
+    
 	    
     public void add(String e){
 	if (size<A.length){

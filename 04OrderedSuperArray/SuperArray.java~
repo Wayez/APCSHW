@@ -11,15 +11,13 @@ public class SuperArray{
     }
     public SuperArray(String file){
 	this();
+	System.out.println();
 	loadWordsToSuperArray(file);
     }
 
     public SuperArray(int length){
-<<<<<<< HEAD
 	A=new String[10];
-=======
 	A=new String[length];
->>>>>>> 9bfd8f624e45b887093e9bcb7de0476d270fbdf2
 	size=0;
     }
     public String toString(){
@@ -34,44 +32,16 @@ public class SuperArray{
 	this.add(new String());
     }
     public void add(int index, String e){
-<<<<<<< HEAD
 	if (size<A.length){
 	    String[] B=new String[A.length];
 	    for(int x=0;x<index;x++){
 		B[x]=A[x];
-=======
-	if (size==0){
-	    A[0]=e;
-	    size++;
-	}
-	else if (size<A.length){
-	    String[] B=new String[A.length];
-	    for(int x=0;x<=index;x++){
-		B[x]=get(x);
->>>>>>> 9bfd8f624e45b887093e9bcb7de0476d270fbdf2
+		if (size==0){
+		    A[0]=e;
+		    size++;
+		    A=B;
+		}
 	    }
-	    B[index]=e;
-	    for(int y=index+1;y<B.length;y++){
-		B[y]=get(y-1);
-	    }
-	    size++;
-	    A=B;
-	} else {
-	    String[] B=new String[size+1];
-<<<<<<< HEAD
-	    for(int x=0;x<index;x++){
-		B[x]=A[x];
-=======
-	    for(int x=0;x<=index;x++){
-		B[x]=get(x);
->>>>>>> 9bfd8f624e45b887093e9bcb7de0476d270fbdf2
-	    }
-	    B[index]=e;
-	    for(int y=index+1;y<B.length;y++){
-		B[y]=get(y-1);
-	    }
-	    size++;
-	    A=B;
 	}
     }
 	    
@@ -158,7 +128,6 @@ public class SuperArray{
 	    return ans;
 	}
     }
-<<<<<<< HEAD
     public void selectionSort(){
 	for (int x=0; x<A.length; x++){
 	    for (int y=0; x<A.length; x++){
@@ -168,8 +137,7 @@ public class SuperArray{
 	    }
 	}
     }
-=======
-        public void InsertionSort(){
+    public void InsertionSort(){
 	for (int x=1; x<size(); x++){
 	    //System.out.println(A[x].compareTo(A[x-1]));
 	    if (A[x].compareTo(A[x-1])<0){
@@ -224,17 +192,13 @@ public class SuperArray{
 	}
     }
     public void badInsertionSort(){
-        OrderedSuperArray c = new OrderedSuperArray();
+        SuperArray c = new SuperArray();
         while( this.size() > 0){ 
             c.add(this.remove(0));
         }
         while(c.size() > 0){
             this.add(c.remove(0));
         }
+    }
 }
->>>>>>> 9bfd8f624e45b887093e9bcb7de0476d270fbdf2
-
-	
-}
-
 	    
