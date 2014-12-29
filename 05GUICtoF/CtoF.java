@@ -24,12 +24,12 @@ public class CtoF extends JFrame implements ActionListener{
 	box = new JRadioButton("Celcius to Ferenheit");
 	box2 = new JRadioButton("Ferenheit to Celcius"); 
 	JRadioButton CtoF = new JRadioButton("Celcius to Ferenheit");
-	//CtoF.setMnemonic(KeyEvent.VK_A);
+	CtoF.setMnemonic(KeyEvent.VK_A);
 	CtoF.setActionCommand("Celcius to Ferenheit");
 	CtoF.setSelected(true);
 
 	JRadioButton FtoC = new JRadioButton("Ferenheit to Celcius");
-	//FtoC.setMnemonic(KeyEvent.VK_B);
+	FtoC.setMnemonic(KeyEvent.VK_B);
 	FtoC.setActionCommand("Ferenheit to Celcius");
 
 	ButtonGroup group = new ButtonGroup();
@@ -39,8 +39,8 @@ public class CtoF extends JFrame implements ActionListener{
 	FtoC.addActionListener(this);
 	
 	// make the buttons call the actionListener
-	convert.setActionCommand("addPeriod");
-	convert.addActionListener(this);
+	//convert.setActionCommand("addPeriod");
+	//convert.addActionListener(this);
 	//clear.setActionCommand("delete");
 	//clear.addActionListener(this);
 	
@@ -63,17 +63,17 @@ public class CtoF extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
 	String action = e.getActionCommand();
 	//System.out.println(action);
-	if(action.equals("addPeriod")){
+	if(action.equals("Celcius to Ferenheit")){
 	    String s = text.getText();
-	    if(box.isSelected()){
-		s+="!";
-	    }else{
-		s+=".";
-	    }
-	    text.setText(s);
+	    int c = Integer.parseInt(s);
+	    int f = c * 5 / 9 + 32;
+	    text.setText(String.valueOf(f));
 	}
-	if(action.equals("delete")){
-	    text.setText("");
+	if(action.equals("Ferenheit to Celcius")){
+	    String s = text.getText();
+	    int f = Integer.parseInt(s);
+	    int c =(f - 32) / 9 * 5;
+	    text.setText(String.valueOf(c));
 	}
     }
     
