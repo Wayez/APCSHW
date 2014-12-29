@@ -6,8 +6,7 @@ public class CtoF extends JFrame implements ActionListener{
     private JButton convert;
     private JLabel degrees;
     private JTextField text;
-    private Container buttons;
-    private Container textyStuff;
+    private Container c;
     private JRadioButton box, box2;
 
     public CtoF() {
@@ -45,21 +44,19 @@ public class CtoF extends JFrame implements ActionListener{
 	//clear.setActionCommand("delete");
 	//clear.addActionListener(this);
 	
-	buttons = new Container();
-	buttons.setLayout(new FlowLayout());
+	c = new Container();
+	c.setLayout(new FlowLayout());
 	//buttons.add(clear);
-	buttons.add(convert);
-	buttons.add(CtoF);
-	buttons.add(FtoC);
+	c.add(degrees);
+	c.add(text);
+	c.add(convert);
+	c.add(CtoF);
+	c.add(FtoC);
  	
-	textyStuff = new Container();
-	textyStuff.setLayout(new FlowLayout());
-	textyStuff.add(degrees);
-	textyStuff.add(text);
-	
+
+
 	//add the 2 containers
-	pane.add(textyStuff);
-	pane.add(buttons);
+	pane.add(c);
 	
     }
     //look at which command is being executed, and choose an action
