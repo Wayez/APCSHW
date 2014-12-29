@@ -3,8 +3,8 @@ import javax.swing.*;
 import java.awt.*; //needed for pane
 public class CtoF extends JFrame implements ActionListener{
     private Container pane;
-    private JButton b,clear;
-    private JLabel l;
+    private JButton convert;
+    private JLabel degrees;
     private JTextField text;
     private Container buttons;
     private Container textyStuff;
@@ -19,9 +19,9 @@ public class CtoF extends JFrame implements ActionListener{
 	pane = this.getContentPane();
 	pane.setLayout(new GridLayout(2,1));
 	
-	l = new JLabel("Degrees:",null,JLabel.CENTER);
-	b = new JButton("Convert");
-	text = new JTextField(40);
+	degrees = new JLabel("Degrees:",null,JLabel.CENTER);
+	convert = new JButton("Convert");
+	text = new JTextField(4);
 	box = new JRadioButton("Celcius to Ferenheit");
 	box2 = new JRadioButton("Ferenheit to Celcius"); 
 	JRadioButton CtoF = new JRadioButton("Celcius to Ferenheit");
@@ -40,21 +40,21 @@ public class CtoF extends JFrame implements ActionListener{
 	FtoC.addActionListener(this);
 	
 	// make the buttons call the actionListener
-	b.setActionCommand("addPeriod");
-	b.addActionListener(this);
+	convert.setActionCommand("addPeriod");
+	convert.addActionListener(this);
 	//clear.setActionCommand("delete");
 	//clear.addActionListener(this);
 	
 	buttons = new Container();
 	buttons.setLayout(new FlowLayout());
 	//buttons.add(clear);
-	buttons.add(b);
+	buttons.add(convert);
 	buttons.add(CtoF);
 	buttons.add(FtoC);
  	
 	textyStuff = new Container();
 	textyStuff.setLayout(new FlowLayout());
-	textyStuff.add(l);
+	textyStuff.add(degrees);
 	textyStuff.add(text);
 	
 	//add the 2 containers
@@ -79,6 +79,7 @@ public class CtoF extends JFrame implements ActionListener{
 	    text.setText("");
 	}
     }
+    
     
     public static void main(String[] args) {
 	CtoF g = new CtoF();
