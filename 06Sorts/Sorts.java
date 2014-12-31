@@ -1,6 +1,8 @@
-import java.util.Arrays;
-public class Driver{
-    public static SuperArray start(String[] args){
+import java.util.File;
+import java.util.FileNotFoundException;
+import java.util.Scanner;
+public class Sorts{
+     public static SuperArray start(String[] args){
 	SuperArray ans=new SuperArray();
 	if (args.length==1){
 	    if (args[0].equals("1")){
@@ -30,7 +32,7 @@ public class Driver{
 		ans.add("Mango");
 		return ans;
 	    } else {
-		System.out.println("Choose First Args:\n1: insertionSort\n2: badbubbleSort\n3: selectionSort\n4: Arrays.sort()\n5: radixSort");
+		System.out.println("Choose First Args:\n1: insertionSort\n2: bubbleSort\n3: selectionSort\n4: Arrays.sort()\n5: radixSort");
 		return null;
 	    }
 	} else {
@@ -38,7 +40,7 @@ public class Driver{
 	    return null;
 	}
     }
-        public static void main(String[]args){
+    public static void main(String[]args){
 	long start = System.currentTimeMillis();
 	SuperArray Wayez =start(args);
 	if (args.length==1 && (args[0].equals("1") || args[0].equals("2") || args[0].equals("3") || args[0].equals("4") || args[0].equals("5"))){
