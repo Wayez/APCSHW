@@ -1,13 +1,12 @@
 import java.util.*;
-import java.util.File;
-import java.util.FileNotFoundException;
-import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 public class Sorts{
-    public ArrayList A;
+    public ArrayList<Integer> A;
     public Sorts(){
 	A=new ArrayList();
     }
-    public SuperArray(String file){
+    public Sorts(String file){
 	this();
 	loadWordsToSuperArray(file);
     }
@@ -15,31 +14,42 @@ public class Sorts{
     public Sorts(int length){
 	A=new ArrayList(length);
     }
-        public void selectionSort(){
-	for (int x=0; x<A.length; x++){
-	    for (int y=0; x<A.length; x++){
-		if (A[y].compareTo(A[x])<=0){
-		    add(x,remove(y));
+    public void selection(){
+	for (int x=0; x<A.size(); x++){
+	    for (int y=0; x<A.size(); x++){
+		if (A.get(y)<=A.get(x)){
+		    A.add(x,A.remove(y));
 		}
 	    }
 	}
     }
-    public void InsertionSort()
-	for (int x=1; x<size(); x++){
+    public void bubble(){
+	int y=A.size()-1;
+	for (int x=0; x<y; x++){
+	    if (A.get(x)>A.get(x+1)){
+		int z=A.get(x);
+		A.set(x, A.get(x+1));
+		A.set(x+1, z);
+	    }
+	    y--;
+	}
+    }
+    public void insertion(){
+	for (int x=1; x<A.size(); x++){
 	    //System.out.println(A[x].compareTo(A[x-1]));
-	    if (A[x].compareTo(A[x-1])<0){
+	    if (A.get(x)<A.get(x-1)){
 		for (int y=1; y<=x; y++){
 		    //System.out.println(A[x].compareTo(A[x-1]));
-		    if (A[x].compareTo(A[x-y])>0){
-			String temp=get(x);
-			remove(x);
+		    if (A.get(x)>A.get(x-1)){
+			int temp=A.get(x);
+			A.remove(x);
 			//System.out.println(x);
 			//System.out.println(y);
 			//System.out.println(x-y);
-			add(x-y+1, temp);
+			A.add(x-y+1, temp);
 			break;
 		    } else if (x-y==0){
-			add(0, remove(x));
+			A.add(0, A.remove(x));
 			break;
 		    }
 		}
@@ -47,24 +57,9 @@ public class Sorts{
 	}
 	//System.out.println(size());
     }
-    public void SelectionSort(){
-	//System.out.println(toString());
-	for (int x=0; x<size(); x++){
-	    String temp=get(x);
-	    int index=x;
-	    for (int y=1; x+y<size(); y++){
-		if (get(x+y).compareTo(temp)<0){
-		    temp=get(x+y);
-		    index=x+y;
-		}
-	    }
-	    set(index, get(x));
-	    set(x, temp);
-	}
-    }
-    public void builtInSort(){
-	Arrays.sort(A);
-    }
+//  public void builtInSort(){
+//	Arrays.sort(A);
+//  }
     public void loadWordsToSuperArray(String file){
 	File word=new File(file);
 	Scanner scnr=new Scanner(System.in);
@@ -75,10 +70,12 @@ public class Sorts{
 	}
 	while (scnr.hasNextLine()){
 	    String wrd=scnr.nextLine();
-	    add(wrd);
+	    int num=Integer.parseInt(wrd);
+	    A.add(num);
 	}
     }
-    public void badInsertionSort(){
+}
+/*   public void badInsertionSort(){
         SuperArray c = new SuperArray();
         while( this.size() > 0){ 
             c.add(this.remove(0));
@@ -88,3 +85,5 @@ public class Sorts{
         }
     }
 }
+
+*/
