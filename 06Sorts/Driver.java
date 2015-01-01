@@ -15,21 +15,14 @@ public class Driver{
 		ans=new Sorts("numbers.txt");
 		ans.selection();
 		return ans;
-		/* } else if (args[0].equals("4")){
+	    } else if (args[0].equals("4")){
 		ans=new Sorts("numbers.txt");
 		ans.builtInSort();
 		return ans;
 	    } else if (args[0].equals("5")){
-		ans=new OrderedSorts();
-		ans.add("Apple");
-		ans.add("Orange");
-		ans.add("Grape");
-		ans.add("Banana");
-		ans.add("Cherry");
-		ans.add("Watermellon");
-		ans.add("Mango");
+		ans=new Sorts("numbers.txt");
+		ans.radix();
 		return ans;
-		*/
 	    } else {
 		System.out.println("Choose First Args:\n1: insertionSort\n2: bubbleSort\n3: selectionSort\n4: Arrays.sort()\n5: radixSort");
 		return null;
