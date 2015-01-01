@@ -1,52 +1,90 @@
+import java.util.*;
 import java.util.File;
 import java.util.FileNotFoundException;
 import java.util.Scanner;
 public class Sorts{
-     public static SuperArray start(String[] args){
-	SuperArray ans=new SuperArray();
-	if (args.length==1){
-	    if (args[0].equals("1")){
-		ans=new SuperArray("numbers.txt");
-		ans.InsertionSort();
-		return ans;
-	    } else if (args[0].equals("2")){
-		ans=new SuperArray("numbers.txt");
-		ans.badInsertionSort();
-		return ans;
-	    } else if (args[0].equals("3")){
-		ans=new SuperArray("numbers.txt");
-		ans.SelectionSort();
-		return ans;
-	    } else if (args[0].equals("4")){
-		ans=new SuperArray("numbers.txt");
-		ans.builtInSort();
-		return ans;
-	    } else if (args[0].equals("5")){
-		ans=new OrderedSuperArray();
-		ans.add("Apple");
-		ans.add("Orange");
-		ans.add("Grape");
-		ans.add("Banana");
-		ans.add("Cherry");
-		ans.add("Watermellon");
-		ans.add("Mango");
-		return ans;
-	    } else {
-		System.out.println("Choose First Args:\n1: insertionSort\n2: bubbleSort\n3: selectionSort\n4: Arrays.sort()\n5: radixSort");
-		return null;
+    public ArrayList A;
+    public Sorts(){
+	A=new ArrayList();
+    }
+    public SuperArray(String file){
+	this();
+	loadWordsToSuperArray(file);
+    }
+
+    public Sorts(int length){
+	A=new ArrayList(length);
+    }
+        public void selectionSort(){
+	for (int x=0; x<A.length; x++){
+	    for (int y=0; x<A.length; x++){
+		if (A[y].compareTo(A[x])<=0){
+		    add(x,remove(y));
+		}
 	    }
-	} else {
-	    System.out.println("Choose First Args:\n1: insertionSort\n2: badInsertionSort\n3: selectionSort\n4: Arrays.sort()\n5: OrderedArrayList");
-	    return null;
 	}
     }
-    public static void main(String[]args){
-	long start = System.currentTimeMillis();
-	SuperArray Wayez =start(args);
-	if (args.length==1 && (args[0].equals("1") || args[0].equals("2") || args[0].equals("3") || args[0].equals("4") || args[0].equals("5"))){
-	    System.out.println(Wayez.toString());
-	    long elapsed = System.currentTimeMillis() - start;
-	    System.out.println("Time Elapsed = " + elapsed);
-	}	
+    public void InsertionSort()
+	for (int x=1; x<size(); x++){
+	    //System.out.println(A[x].compareTo(A[x-1]));
+	    if (A[x].compareTo(A[x-1])<0){
+		for (int y=1; y<=x; y++){
+		    //System.out.println(A[x].compareTo(A[x-1]));
+		    if (A[x].compareTo(A[x-y])>0){
+			String temp=get(x);
+			remove(x);
+			//System.out.println(x);
+			//System.out.println(y);
+			//System.out.println(x-y);
+			add(x-y+1, temp);
+			break;
+		    } else if (x-y==0){
+			add(0, remove(x));
+			break;
+		    }
+		}
+	    }
+	}
+	//System.out.println(size());
+    }
+    public void SelectionSort(){
+	//System.out.println(toString());
+	for (int x=0; x<size(); x++){
+	    String temp=get(x);
+	    int index=x;
+	    for (int y=1; x+y<size(); y++){
+		if (get(x+y).compareTo(temp)<0){
+		    temp=get(x+y);
+		    index=x+y;
+		}
+	    }
+	    set(index, get(x));
+	    set(x, temp);
+	}
+    }
+    public void builtInSort(){
+	Arrays.sort(A);
+    }
+    public void loadWordsToSuperArray(String file){
+	File word=new File(file);
+	Scanner scnr=new Scanner(System.in);
+	try {
+	scnr=new Scanner(word);
+	} catch(FileNotFoundException e){
+	    System.out.println("lOL");
+	}
+	while (scnr.hasNextLine()){
+	    String wrd=scnr.nextLine();
+	    add(wrd);
+	}
+    }
+    public void badInsertionSort(){
+        SuperArray c = new SuperArray();
+        while( this.size() > 0){ 
+            c.add(this.remove(0));
+        }
+        while(c.size() > 0){
+            this.add(c.remove(0));
+        }
     }
 }
