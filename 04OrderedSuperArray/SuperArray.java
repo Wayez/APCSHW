@@ -31,7 +31,7 @@ public class SuperArray{
     public void add(){
 	this.add(new String());
     }
-    public void orderedAdd(int index, String e){
+    public void add(int index, String e){
 	if (size==0){
 	    A[0]=e;
 	    size++;
@@ -60,7 +60,7 @@ public class SuperArray{
 	    A=B;
 	}
     }
-    public void add(int index, String e){
+    /*public void add(int index, String e){
 	if (size<A.length){
 	    String[] B=new String[A.length];
 	    for(int x=0;x<index;x++){
@@ -73,7 +73,7 @@ public class SuperArray{
 	    }
 	}
     }
-    
+    */
     
 	    
     public void add(String e){

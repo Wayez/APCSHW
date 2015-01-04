@@ -6,6 +6,7 @@ public class Driver{
 	    if (args[0].equals("1")){
 		ans=new Sorts("numbers.txt");
 		ans.insertion();
+		//System.out.println("l");
 		return ans;
 	    } else if (args[0].equals("2")){
 		ans=new Sorts("numbers.txt");
@@ -15,10 +16,10 @@ public class Driver{
 		ans=new Sorts("numbers.txt");
 		ans.selection();
 		return ans;
-	    } else if (args[0].equals("4")){
+		/* } else if (args[0].equals("4")){
 		ans=new Sorts("numbers.txt");
 		ans.builtInSort();
-		return ans;
+		return ans;*/
 	    } else if (args[0].equals("5")){
 		ans=new Sorts("numbers.txt");
 		ans.radix();
