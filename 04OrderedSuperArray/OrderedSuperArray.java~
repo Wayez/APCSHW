@@ -79,7 +79,7 @@ public class OrderedSuperArray extends SuperArray{
 		a++;
 	    }
 	}
-	super.orderedAdd(a, e);
+	super.add(a, e);
     }
     public void order(String e){
 	System.out.println(size());
@@ -97,7 +97,8 @@ public class OrderedSuperArray extends SuperArray{
 	    System.out.println( "Error: Index cannot be less than 0");
 	    return null;
 	} else if(index>=size){
-	    System.out.println( "Error: Index cannot be greater than or equal to size");
+	    System.out.println( "Error: Index cannot be greater than or equal to
+ size");
 	    return null;
        } else {
 	    String x=A[index];

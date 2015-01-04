@@ -69,19 +69,26 @@ public class Sorts{
 
 	
     }
-    /*   public void builtInSort(){
-	 int[] B =(int) A.toArray();
-	/*for (int x=0; x<B.length; x++){
+    public void builtInSort(){
+	Object[] C=A.toArray();
+	int[] B = new int[C.length];
+	for (int w=0; w<C.length; w++){
+	    B[w]=(int) C[w];
+	}
+	for (int x=0; x<B.length; x++){
 	    B[x]=(int) B[x];
 	}
-	
 	Arrays.sort(B);
-	A=new ArrayList<Integer>(Arrays.asList(B));
-	}*/
+	A.clear();
+	for (int y=0; y<B.length; y++){
+	    A.add(B[y]);
+	}
+    }
     public void radix(){
 	int x=A.size();	
 	int y=1;
 	boolean go=true;
+	int high=0;
 	while(go){
 	    ArrayList<Integer>[] B= new ArrayList[x];
 	    for (int w=0; w<x; w++){
@@ -89,7 +96,8 @@ public class Sorts{
 	    }
 	    for (int z=0; z<x; z++){
 		int num=A.get(z);
-		int dig=(int)(Math.abs(num) / Math.pow(10, y - 1)) % 10;
+		high=Math.max(num, high);
+		int dig=(int)(num / Math.pow(10, y-1)) % 10;
 		B[dig].add(num);
 	    }
 	    A.clear();
@@ -99,7 +107,7 @@ public class Sorts{
 		}
 	    }
 	    y++;
-	    go = y <= 6;
+	    go = high > Math.pow(10, y-1);
 	}
 
     }

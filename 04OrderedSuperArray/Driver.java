@@ -4,29 +4,21 @@ public class Driver{
 	SuperArray ans=new SuperArray();
 	if (args.length==1){
 	    if (args[0].equals("1")){
-		ans=new SuperArray("numbers.txt");
+		ans=new SuperArray("words.txt");
 		ans.InsertionSort();
 		return ans;
 	    } else if (args[0].equals("2")){
-		ans=new SuperArray("numbers.txt");
+		ans=new SuperArray("words.txt");
 		ans.badInsertionSort();
 		return ans;
 	    } else if (args[0].equals("3")){
-		ans=new SuperArray("numbers.txt");
+		ans=new SuperArray("words.txt");
 		ans.SelectionSort();
 		return ans;
 	    } else if (args[0].equals("4")){
-	        SuperArray A=new SuperArray("words.txt");
-		int y=A.size()-1;
-		for (int x=0; x<y; x++){
-		    if (A.get(x).compareTo(A.get(x+1))>0){
-			String z=A.get(x);
-			A.set(x, A.get(x+1));
-			A.set(x+1, z);
-		    }
-		    y--;
-		}
-		return A;
+	        ans=new SuperArray("words.txt");
+		ans.builtInSort();
+		return ans;
 	    } else if (args[0].equals("5")){
 		ans=new OrderedSuperArray();
 		ans.add("Apple");

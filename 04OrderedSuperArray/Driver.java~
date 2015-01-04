@@ -16,9 +16,17 @@ public class Driver{
 		ans.SelectionSort();
 		return ans;
 	    } else if (args[0].equals("4")){
-		ans=new SuperArray("numbers.txt");
-		ans.builtInSort();
-		return ans;
+	        SuperArray A=new SuperArray("words.txt");
+		int y=A.size()-1;
+		for (int x=0; x<y; x++){
+		    if (A.get(x).compareTo(A.get(x+1))>0){
+			String z=A.get(x);
+			A.set(x, A.get(x+1));
+			A.set(x+1, z);
+		    }
+		    y--;
+		}
+		return A;
 	    } else if (args[0].equals("5")){
 		ans=new OrderedSuperArray();
 		ans.add("Apple");

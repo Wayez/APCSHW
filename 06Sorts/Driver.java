@@ -16,10 +16,10 @@ public class Driver{
 		ans=new Sorts("numbers.txt");
 		ans.selection();
 		return ans;
-		/* } else if (args[0].equals("4")){
+	    } else if (args[0].equals("4")){
 		ans=new Sorts("numbers.txt");
 		ans.builtInSort();
-		return ans;*/
+		return ans;
 	    } else if (args[0].equals("5")){
 		ans=new Sorts("numbers.txt");
 		ans.radix();
@@ -29,7 +29,7 @@ public class Driver{
 		return null;
 	    }
 	} else {
-	    System.out.println("Choose First Args:\n1: insertionSort\n2: badInsertionSort\n3: selectionSort\n4: Arrays.sort()\n5: OrderedArrayList");
+	    System.out.println("Choose First Args:\n1: insertionSort\n2: bubbleSort\n3: selectionSort\n4: Arrays.sort()\n5: radixSort");
 	    return null;
 	}
     }
